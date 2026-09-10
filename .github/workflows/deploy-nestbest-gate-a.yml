@@ -1,0 +1,50 @@
+name: Deploy validated NestBest Gate A payload
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/deploy-nestbest-gate-a.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download validated Gate A payload
+        run: |
+          curl -fL 'https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-acdc-822f-bbc8-f2b649943cbd/raw?se=2026-09-10T23%3A47%3A16Z&sp=r&sv=2026-02-06&sr=b&scid=7fd56629-b7a9-53bc-8484-7697d9f78c4d&skoid=fae15675-a81a-44b5-9d8c-d8445a7c26a2&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-10T01%3A26%3A52Z&ske=2026-09-11T01%3A26%3A52Z&sks=b&skv=2026-02-06&sig=Og%2BeZ1TpEixqPxxSpO/NfU4nGJnR14HikS6lLHS7Vp0%3D' -o /tmp/gate-a.zip
+          rm -rf /tmp/gate-a && mkdir -p /tmp/gate-a
+          unzip -q /tmp/gate-a.zip -d /tmp/gate-a
+      - name: Install public payload without touching legacy functional assets
+        run: |
+          cp /tmp/gate-a/app.html ./app.html
+          cp /tmp/gate-a/index.html ./index.html
+          cp /tmp/gate-a/about.html ./about.html
+          cp /tmp/gate-a/privacy.html ./privacy.html
+          cp /tmp/gate-a/terms.html ./terms.html
+          cp /tmp/gate-a/sw.js ./sw.js
+          cp /tmp/gate-a/manifest.webmanifest ./manifest.webmanifest
+          cp '/tmp/gate-a/NestBest Logo.png' './NestBest Logo.png'
+          cp /tmp/gate-a/apple-touch-icon.png ./apple-touch-icon.png
+          cp /tmp/gate-a/favicon-16.png ./favicon-16.png
+          cp /tmp/gate-a/favicon-32.png ./favicon-32.png
+          cp /tmp/gate-a/icon-192.png ./icon-192.png
+          cp /tmp/gate-a/icon-512.png ./icon-512.png
+          cp /tmp/gate-a/icon-maskable-512.png ./icon-maskable-512.png
+          cp /tmp/gate-a/nestbest-social-preview.png ./nestbest-social-preview.png
+          cp /tmp/gate-a/DEPLOYED.md ./DEPLOYED.md
+          test -f nestworth-template.xlsx
+          test -d wren
+      - name: Commit validated public payload atomically
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app.html index.html about.html privacy.html terms.html sw.js manifest.webmanifest 'NestBest Logo.png' apple-touch-icon.png favicon-16.png favicon-32.png icon-192.png icon-512.png icon-maskable-512.png nestbest-social-preview.png DEPLOYED.md
+          git diff --cached --quiet && exit 0
+          git commit -m 'Deploy validated NestBest Gate A build'
+          git push origin HEAD:main
