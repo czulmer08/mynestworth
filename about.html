@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>How NestWorth Works</title>
+<title>How NestBest Works</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/png" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,21 +46,21 @@
 </head>
 <body>
 <div class="wrap">
-  <p class="eyebrow">About NestWorth</p>
-  <h1>How NestWorth works — and how we test it.</h1>
-  <p class="lede">NestWorth was built around one stubborn idea: your budget, your cash flow, your savings goals and your net worth should never tell four different stories. This page explains how the app is put together, and how carefully its math is checked — because when it comes to your money, "probably right" isn't good enough.</p>
+  <p class="eyebrow">About NestBest</p>
+  <h1>How NestBest works — and how we test it.</h1>
+  <p class="lede">NestBest was built around one stubborn idea: your budget, your cash flow, your savings goals and your net worth should never tell four different stories. This page explains how the app is put together, and how carefully its math is checked — because when it comes to your money, "probably right" isn't good enough.</p>
 
   <div class="card">
     <h2>The idea</h2>
-    <p>Most money apps are a pile of separate calculators bolted together — a budget here, a net-worth tracker there — that quietly disagree with each other. NestWorth does the math <strong>once</strong>, in a single financial model, and every screen reads from that same model. Your paycheck schedule, the money you set aside for goals, the cushion you keep for a rough month — they all flow through one set of calculations, so the numbers stay honest with each other.</p>
-    <p>It also runs entirely in your browser, on top of your <strong>own</strong> Google Drive. There's no NestWorth server holding your financial life. (The full details are in the <a href="privacy.html">privacy policy</a>.)</p>
+    <p>Most money apps are a pile of separate calculators bolted together — a budget here, a net-worth tracker there — that quietly disagree with each other. NestBest does the math <strong>once</strong>, in a single financial model, and every screen reads from that same model. Your paycheck schedule, the money you set aside for goals, the cushion you keep for a rough month — they all flow through one set of calculations, so the numbers stay honest with each other.</p>
+    <p>It also runs entirely in your browser, on top of your <strong>own</strong> Google Drive. There's no NestBest server holding your financial life. (The full details are in the <a href="privacy.html">privacy policy</a>.)</p>
 
     <h2>How it works, briefly</h2>
-    <p>When you open NestWorth, it creates a private budget spreadsheet in your Google Drive and does all the work from there — reading and writing that file directly from your phone. You log spending in a couple of taps; NestWorth turns it into a budget that understands real paydays, savings that count as savings, and a net-worth picture that updates as you go. <strong>Wren</strong>, the friendly bird, explains what's happening in plain English — and Wren reads the very same numbers the app computes everywhere else. NestWorth computes; Wren interprets.</p>
+    <p>When you open NestBest, it creates a private budget spreadsheet in your Google Drive and does all the work from there — reading and writing that file directly from your phone. You log spending in a couple of taps; NestBest turns it into a budget that understands real paydays, savings that count as savings, and a net-worth picture that updates as you go. <strong>Wren</strong>, the friendly bird, explains what's happening in plain English — and Wren reads the very same numbers the app computes everywhere else. NestBest computes; Wren interprets.</p>
   </div>
 
   <div class="card">
-    <h2>How we test NestWorth</h2>
+    <h2>How we test NestBest</h2>
     <p>Because a budgeting app that's subtly wrong is worse than useless, the financial model is checked continuously, in several different ways. In plain terms:</p>
     <ul>
       <li><span class="lyr">One model, checked from every screen.</span> Budget, cash flow, goals and net worth all read from the same underlying calculations, so they physically can't drift apart.</li>
@@ -68,24 +68,24 @@
       <li><span class="lyr">Thousands of randomized households.</span> We generate more than <span class="num">9,000</span> complete, randomly-built households and confirm the rules that must <em>always</em> hold — for example: adding an expense can never improve your cash flow, and moving money into a goal never changes your net worth.</li>
       <li><span class="lyr">Wren tells the truth.</span> Wren is checked against <span class="num">122</span> real conversations to confirm it reports the exact figures the engine produced, and never invents its own.</li>
       <li><span class="lyr">A test of the tests.</span> We deliberately break the math in known ways and confirm the tests catch every one — so a passing test actually means something.</li>
-      <li><span class="lyr">Dropped connections and interrupted saves.</span> We simulate the network failing at the worst possible moment and confirm NestWorth never silently loses a change, never claims a save it didn't make, and never duplicates a transaction.</li>
+      <li><span class="lyr">Dropped connections and interrupted saves.</span> We simulate the network failing at the worst possible moment and confirm NestBest never silently loses a change, never claims a save it didn't make, and never duplicates a transaction.</li>
       <li><span class="lyr">Safety and speed.</span> Automated checks for spreadsheet-formula injection, cross-site scripting and safe sharing, plus code-level accessibility checks and performance tested up to 100,000 transactions.</li>
     </ul>
     <p style="margin-top:18px">Altogether that's <strong>dozens of automated test suites</strong> running against the app — thousands of individual checks, most of them re-run on every change.</p>
 
-    <div class="callout"><strong>What this does — and doesn't — prove.</strong> These are automated tests in a controlled environment. They give us strong confidence that the math is correct and that the app recovers gracefully when things go wrong. They are <strong>not</strong> a substitute for testing on real phones with real people, which we also do — and no amount of testing makes software perfect. If you ever see a number that looks wrong, please <a href="mailto:czulmer@gmail.com">tell us</a>; we take it seriously.</div>
+    <div class="callout"><strong>What this does — and doesn't — prove.</strong> These are automated tests in a controlled environment. They give us strong confidence that the math is correct and that the app recovers gracefully when things go wrong. They are <strong>not</strong> a substitute for testing on real phones with real people, which we also do — and no amount of testing makes software perfect. If you ever see a number that looks wrong, please <a href="mailto:ulmer.holland.consulting@gmail.com">tell us</a>; we take it seriously.</div>
   </div>
 
   <div class="card">
     <h2>A note on advice</h2>
-    <p>NestWorth helps you see and plan <em>your own</em> money clearly. It doesn't provide financial, tax, legal or investment advice, and it isn't a substitute for a professional who knows your full situation.</p>
+    <p>NestBest helps you see and plan <em>your own</em> money clearly. It doesn't provide financial, tax, legal or investment advice, and it isn't a substitute for a professional who knows your full situation.</p>
 
     <h2>Who made it</h2>
-    <p>NestWorth is built by <strong>Dr. Candice Z. Ulmer Holland, Ph.D.</strong>, and provided by <strong>Ulmer Consulting, LLC</strong>. Questions, ideas or something that looks off? Email <a href="mailto:czulmer@gmail.com">czulmer@gmail.com</a> — real feedback shapes what NestWorth becomes.</p>
-    <p style="margin-top:20px"><a class="backcta" href="app.html">Open NestWorth →</a></p>
+    <p>NestBest is built by <strong>Dr. Candice Z. Ulmer Holland, Ph.D.</strong>, and provided by <strong>Ulmer Consulting LLC</strong>. Questions, ideas or something that looks off? Email <a href="mailto:ulmer.holland.consulting@gmail.com">ulmer.holland.consulting@gmail.com</a> — real feedback shapes what NestBest becomes.</p>
+    <p style="margin-top:20px"><a class="backcta" href="app.html">Open NestBest →</a></p>
   </div>
 
-  <footer>NestWorth · a product of Ulmer Consulting, LLC · <a href="index.html">Back to NestWorth</a> · <a href="privacy.html">Privacy</a></footer>
+  <footer>NestBest™ · a product of Ulmer Consulting LLC · <a href="index.html">Back to NestBest</a> · <a href="privacy.html">Privacy</a></footer>
 </div>
 </body>
 </html>

@@ -1,8 +1,9 @@
-/* NestWorth service worker — makes the app work offline and caches Wren's images.
+/* NestBest service worker — makes the app work offline and caches Wren's images.
    Bump CACHE (…-vN) whenever you replace an image file so the new art is picked up. */
-const CACHE = 'nestworth-assets-v12';
+const CACHE = 'nestbest-assets-v14';
 const PRECACHE = [
   'app.html', 'apple-touch-icon.png',
+  'icon-192.png','icon-512.png','icon-maskable-512.png','favicon-32.png','favicon-16.png',
   'wren/happy.png','wren/glasses.png','wren/study.png','wren/cheer.png','wren/confused.png','wren/search.png',
   'wren/full.png','wren/nest.png','wren/goal.png','wren/insights.png',
   'wren/privacy.png','wren/growing.png','wren/guiding.png','wren/goalreached.png','wren/nestegg.png'

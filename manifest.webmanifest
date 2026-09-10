@@ -1,16 +1,15 @@
 {
-  "name": "NestWorth",
-  "short_name": "NestWorth",
-  "description": "Your budget, savings, and net worth — quietly in your pocket.",
-  "start_url": "./",
+  "name": "NestBest",
+  "short_name": "NestBest",
+  "description": "Your budget, your savings, and your net worth — quietly in your pocket.",
+  "start_url": "app.html",
   "scope": "./",
   "display": "standalone",
-  "orientation": "portrait",
   "background_color": "#F3F6EF",
   "theme_color": "#2E7D5B",
   "icons": [
-    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }
