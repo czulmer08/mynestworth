@@ -1,40 +1,38 @@
 # NestBest™
 
-**The financial home for your household.**
+**The financial home for your household — plan, budget, build.**
+Live at **[mynestbest.com](https://mynestbest.com)**.
 
-NestBest is a private, phone-first personal budgeting app. Your budget lives in a Google Sheets file in **your own Google Drive**; NestBest runs in your browser and communicates directly with Google APIs rather than sending your financial data through a NestBest server or database.
+NestBest is a private, browser-based budgeting and net-worth app for households. It brings your spending, paychecks, savings goals, cash flow, and net worth together in one place, with paycheck-aware planning and a plain-English assistant (Wren) that reads the same numbers the app computes. There's nothing to install — it runs in your browser and adds to your home screen as a PWA.
 
-It brings budgeting, cash flow, goals, and net worth into one household financial view, with Wren providing scripted explanations of numbers the app has already calculated.
+## About this repository
 
-## Live site
+This repository hosts the **deployed static site** served via GitHub Pages: the landing page, the app, the supporting pages (About, Privacy, Terms), and the PWA assets. It is the published build, not the development source — application development, tests, and release tooling live in a separate private repository.
 
-**https://mynestbest.com**
+## Privacy by architecture
 
-The public site is hosted with GitHub Pages. This repository contains the files required to serve the production site, including:
+NestBest has no server that holds your money data. The app talks **directly from your browser to Google**, and your budget lives in **your own Google Drive**:
 
-- `index.html` — public landing page
-- `app.html` — production NestBest application
-- `about.html` — product overview
-- `privacy.html` — privacy policy
-- `terms.html` — terms of use
-- `manifest.webmanifest` and icons — PWA metadata and assets
-- `sw.js` — service worker
-- `wren/` — Wren character artwork used by the app
+- It uses a single, narrow Google permission — **`drive.file`** — so it can only see the budget files it creates or that you explicitly open, never your whole Drive.
+- There is **no NestBest database** of your household's numbers and **no advertising profile** built on your spending.
+- App settings are stored **locally in your browser**. Optional receipt scanning uses Google's Gemini with a key **you** provide, and a shared key (if you use one) is stored in **your own** Drive.
 
-## Privacy by design
+Full details are in the [Privacy Policy](https://mynestbest.com/privacy.html). The OAuth client ID and Google Picker API key visible in the source are public-by-design browser credentials — the Picker key is restricted to approved website referrers, and the app requests only `drive.file`.
 
-NestBest is designed so household financial information remains in the user's Google account. The app requests Google's limited `drive.file` permission, which allows it to work with files it creates or that the user explicitly opens with it rather than providing general access to the user's Drive.
+## Existing NestWorth users
 
-NestBest does not use advertising or third-party analytics. See [`privacy.html`](privacy.html) for the full privacy policy.
+NestBest is the continuation of NestWorth. **Your existing budgets stay in your Google Drive and keep working — no migration, no re-setup.** The app is backward-compatible with existing NestWorth budget folders and sheets.
 
-## Compatibility files
+## Tech
 
-Some filenames and internal identifiers intentionally retain the original **NestWorth** name for backward compatibility with existing users and budgets. In particular, **do not rename or remove `nestworth-template.xlsx` solely for branding purposes**; the production application intentionally references that legacy filename.
+A single-file HTML/CSS/JavaScript progressive web app. No backend, no build step required to run it. Google Drive and Sheets are the only external services, reached directly from the browser.
 
-## Development and deployment
+## Author
 
-This is the **public production repository**, not the authoritative development repository. Source development, automated verification, audit documentation, build provenance, and release gating are maintained separately. Production changes should come through the validated release process rather than by editing `app.html` directly.
+Created by **Dr. Candice Z. Ulmer Holland, Ph.D.**, a product of **Ulmer Consulting LLC**.
+Questions or feedback: [ulmer.holland.consulting@gmail.com](mailto:ulmer.holland.consulting@gmail.com)
 
 ---
 
-NestBest™ is a product of **Ulmer Consulting LLC**. It is not financial, tax, or investment advice.
+NestBest™ is a trademark of Ulmer Consulting LLC.
+© 2026 Ulmer Consulting LLC. All rights reserved.
