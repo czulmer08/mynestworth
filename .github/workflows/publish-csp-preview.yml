@@ -1,0 +1,33 @@
+name: Publish CSP preview
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-csp-preview.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download exact validated CSP artifact
+        shell: bash
+        run: |
+          curl -L --fail --retry 3 'https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-0988-822f-b225-4be1e1932ce2/raw?se=2026-09-13T14%3A08%3A18Z&sp=r&sv=2026-02-06&sr=b&scid=4f9cb95a-22f2-5423-a79e-a396b2395a46&skoid=fae15675-a81a-44b5-9d8c-d8445a7c26a2&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-13T12%3A00%3A38Z&ske=2026-09-14T12%3A00%3A38Z&sks=b&skv=2026-02-06&sig=7GxC7TwK9CQERQcQZ2gv14tf7VTdxrUxD5CBjqmMPaI%3D' -o /tmp/csp-preview.zip
+          rm -rf /tmp/csp-preview && mkdir -p /tmp/csp-preview
+          unzip -q /tmp/csp-preview.zip -d /tmp/csp-preview
+          test "$(sha256sum /tmp/csp-preview/app.production.html | cut -d' ' -f1)" = '1ac7309907b8b8c8c67da19bac10f8d4fb43d1cc6923cefc8ab4d7c05c674031'
+          grep -q 'BUILD="20260912.1"' /tmp/csp-preview/app.production.html
+      - name: Publish preview only
+        shell: bash
+        run: |
+          cp /tmp/csp-preview/app.production.html csp-preview.html
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add csp-preview.html
+          git commit -m 'Publish CSP preview build 20260912.1'
+          git push
