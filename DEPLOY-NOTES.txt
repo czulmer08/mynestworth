@@ -1,0 +1,33 @@
+NestBest v0.68.99 / build 20260915.1
+PUBLIC DEPLOY PAYLOAD
+
+UPLOAD / REPLACE:
+1. app.html
+   SHA-256: dd60a7012317ff63ca4e4273c41ac4744511de44e2aec3dab5b0d1a79403d522
+2. nestbest-template.xlsx
+   SHA-256: 73ae971d0df80afe3101dff7deb357bff21523a7c653eeeff5b8bda196cb259d
+
+KEEP IN REPO — DO NOT DELETE:
+- nestworth-template.xlsx (legacy compatibility alias for cached/installed older app versions)
+- all existing Wren/image/PWA assets
+
+CURRENT PUBLIC app.html BEFORE THIS DEPLOY:
+Git blob SHA: 301f8b9b6a33b461a5ee6c3f802afa919fb67e04
+CSP app-block hash: sha256-K5b+SWM7UG9zhRm6c/qjhKoadg7hR2DMHGWHJn7OlTc=
+
+NEW SHIPPING app.html:
+VERSION: 0.68.99
+BUILD: 20260915.1
+CSP app-block hash: sha256-kD33lpgKMZvBu1N5zoZf5M3qSVqNNT4Md5mhrNo2m54=
+
+AFTER UPLOAD, TEST:
+- site boots normally
+- Settings shows 0.68.99 / 20260915.1
+- existing OWNED NestWorth budget opens and renames to NestBest Budget
+- legacy NestWorth folder renames in place to NestBest if no NestBest folder exists
+- Read me branding refreshes
+- brand-new NestBest budget creates successfully (proves nestbest-template.xlsx is served)
+- shared/non-owned budget opens but is NOT renamed
+- Google sign-in + Picker still work
+
+Do not remove nestworth-template.xlsx yet.
